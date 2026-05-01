@@ -1,0 +1,339 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Apron Belly Guide',
+  url: 'https://apronbellyguide.com',
+  description: 'The practical guide to apron belly without surgery.',
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Apron Belly Guide',
+  url: 'https://apronbellyguide.com',
+  email: 'contact@apronbellyguide.com',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is apron belly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Apron belly — also called pannus stomach — is the panel of excess skin and fat that hangs over the lower abdomen. It forms when the skin stretches from weight gain, pregnancy, or rapid fat accumulation, and does not fully retract when the weight is lost or the pregnancy ends.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can apron belly go away without surgery?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The fat component can reduce significantly through overall weight loss. The skin component is more variable: it continues retracting for up to two years after weight stabilizes. Many people see meaningful improvement through non-surgical approaches; some see dramatic changes.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does compression help apron belly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — for daily management, compression is one of the most immediately effective tools. A well-fitted compression garment physically supports the apron area, eliminates chafing, and smooths your silhouette. It will not reduce or tighten the skin, but it makes day-to-day life significantly more comfortable while other interventions work.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take for apron belly to reduce?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'There is no single timeline. The fat component reduces as you lose weight overall. The skin component is slower: retraction continues for 12–24 months after your weight stabilizes. Compression provides immediate improvement; collagen and RF devices work over 3–6 months; skin retraction on its own takes the longest.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is apron belly the same as FUPA?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not exactly. Apron belly (pannus) is the hanging panel of skin and fat below the navel. FUPA refers to fat accumulation specifically at the pubic mound. They are adjacent areas, and some people use the terms interchangeably, but they are anatomically different.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Apron Belly Guide — Prevent, Reduce & Manage Without Surgery"
+  description="The practical guide to apron belly without surgery. What works, what doesn't, and how to find your best option — written for real people, not clinics."
+  schema={[websiteSchema, organizationSchema, faqSchema]}
+>
+  <main>
+
+    <!-- HERO -->
+    <section class="max-w-3xl mx-auto px-4 pt-14 pb-12 sm:pt-20 sm:pb-16">
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-on-surface mb-6">
+        You Have Apron Belly.<br class="hidden sm:block" /> Here's What Actually Works — Without Surgery.
+      </h1>
+      <p class="text-lg sm:text-xl text-on-surface-variant leading-relaxed mb-8 max-w-2xl">
+        The practical, non-surgical guide to preventing, reducing, and managing apron belly — written for real people, not clinics.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#your-path" class="inline-flex items-center justify-center px-6 py-3.5 bg-sage-green text-white font-semibold rounded-xl shadow-sm hover:opacity-90 transition-opacity">
+          Find Your Path →
+        </a>
+        <a href="#quiz" class="inline-flex items-center justify-center px-6 py-3.5 bg-white border border-neutral-muted text-on-surface font-semibold rounded-xl hover:bg-neutral-muted/50 transition-colors">
+          Take the Free Quiz
+        </a>
+      </div>
+    </section>
+
+    <!-- VALIDATION -->
+    <section class="bg-white border-y border-neutral-muted">
+      <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-6">You've Been Searching. We Built the Place You Were Looking For.</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-4 text-body-md">
+          <p>If you've spent time Googling apron belly and come away with two kinds of answers — "you need surgery" or "just learn to love your body" — you're not alone, and neither answer is complete.</p>
+          <p>Most people dealing with apron belly aren't looking for surgery. They want to understand what's happening, know what they can realistically do about it, and find a source that isn't trying to book them into a consultation room.</p>
+          <p>That's why this site exists.</p>
+          <p>Over 50 million Americans live with apron belly — the panel of excess skin and fat that forms in the lower abdomen after weight gain, pregnancy, or significant weight loss. It's one of the most searched health topics with almost no reliable, unbiased information.</p>
+          <p>We're not a clinic. We don't perform procedures. We don't make money when you book surgery.</p>
+          <p>What we do: research every non-surgical option, be honest about what the evidence actually shows, and help you figure out which combination makes sense for where you are right now.</p>
+        </div>
+        <blockquote class="mt-8 border-l-4 border-sage-green pl-5 italic text-on-surface-variant">
+          <p class="mb-1">"Is there a master post here or something about how to prevent loose skin? I can't afford surgery and I'd love to get ahead of it."</p>
+          <footer class="text-sm not-italic text-on-surface-variant/70">— r/loseit, 286 upvotes</footer>
+        </blockquote>
+        <p class="mt-5 text-on-surface-variant">That comment was the beginning of this guide. We built the post they were asking for.</p>
+      </div>
+    </section>
+
+    <!-- WHAT IS APRON BELLY -->
+    <section class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-6">What Is Apron Belly, Exactly?</h2>
+      <div class="text-on-surface-variant leading-relaxed space-y-4 text-body-md">
+        <p>Apron belly — also called <strong class="text-on-surface">pannus stomach</strong> — is the panel of excess skin and fat that hangs over the lower abdomen. It forms when the skin stretches from sustained weight gain, pregnancy, or significant fat accumulation, and doesn't fully retract when circumstances change.</p>
+        <p>It's more common than most people realize: it affects people who have lost a significant amount of weight, people who have been pregnant (especially multiple times), and people who have carried excess weight for a long period of time. It can be entirely fat, mostly excess skin, or — most commonly — a combination of both. That distinction matters more than most people know, because fat and skin respond to different interventions on very different timelines.</p>
+        <p><strong class="text-on-surface">What apron belly is not:</strong> a sign that you did something wrong. It's a mechanical consequence of how skin and fat behave under extended tension. The people who develop it most prominently are often those who made the hardest changes — losing large amounts of weight, going through multiple pregnancies, or managing conditions that affect body composition.</p>
+        <p>It's also not a single, fixed problem. A 30-pound weight loss looks different than a 130-pound weight loss. A postpartum pannus at 28 looks different than one at 52. The right approach depends entirely on which version of this situation you're dealing with — which is why we built this guide around your specific path.</p>
+      </div>
+    </section>
+
+    <!-- THE 3 PATHS -->
+    <section id="your-path" class="bg-white border-y border-neutral-muted scroll-mt-20">
+      <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-2">Where Are You Right Now?</h2>
+        <p class="text-on-surface-variant mb-8">Everyone's situation is different. Tell us where you are and we'll point you in the right direction.</p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <!-- Prevent -->
+          <div class="bg-background rounded-xl border border-neutral-muted p-6 flex flex-col">
+            <div class="w-10 h-10 rounded-full bg-sage-green/10 flex items-center justify-center mb-4 text-xl">🛡</div>
+            <h3 class="font-bold text-on-surface mb-2">I want to PREVENT it</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5 flex-1">I'm currently losing weight — through diet, exercise, or Ozempic — and I want to protect my skin before loose skin becomes a problem.</p>
+            <a href="/non-surgical-solutions/#prevention" class="text-sm font-semibold text-sage-green hover:underline">
+              Start with the prevention guide →
+            </a>
+          </div>
+
+          <!-- Reduce -->
+          <div class="bg-background rounded-xl border border-dusty-rose/30 p-6 flex flex-col">
+            <div class="w-10 h-10 rounded-full bg-dusty-rose/10 flex items-center justify-center mb-4 text-xl">⚡</div>
+            <h3 class="font-bold text-on-surface mb-2">I want to REDUCE it</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5 flex-1">I already have apron belly and I want real, non-surgical options that actually work. This is where most people start.</p>
+            <a href="/non-surgical-solutions/" class="text-sm font-semibold text-dusty-rose hover:underline">
+              Read the Non-Surgical Guide →
+            </a>
+          </div>
+
+          <!-- Manage -->
+          <div class="bg-background rounded-xl border border-neutral-muted p-6 flex flex-col">
+            <div class="w-10 h-10 rounded-full bg-neutral-muted flex items-center justify-center mb-4 text-xl">💛</div>
+            <h3 class="font-bold text-on-surface mb-2">I want to MANAGE it</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5 flex-1">I'm learning to live with it while I work on longer-term changes. I need practical help for day-to-day comfort and confidence.</p>
+            <a href="/compression/best-shapewear/" class="text-sm font-semibold text-on-surface-variant hover:text-sage-green hover:underline transition-colors">
+              Read: Best Shapewear for Apron Belly →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 EDITORIAL ANGLES -->
+    <section class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-2">Everything We Cover — And Why It Matters</h2>
+      <p class="text-on-surface-variant mb-8">Apron belly isn't one problem with one solution. It's five overlapping situations, each with a different approach.</p>
+
+      <div class="space-y-4">
+        <!-- Ozempic -->
+        <a href="/ozempic/loose-skin-after-weight-loss/" class="block bg-white rounded-xl border border-neutral-muted p-6 hover:border-sage-green hover:shadow-card transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🔥</span>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-on-surface group-hover:text-sage-green transition-colors">After Ozempic & Rapid Weight Loss</h3>
+                <span class="text-xs font-bold text-dusty-rose bg-dusty-rose/10 px-2 py-0.5 rounded-full">Most searched right now</span>
+              </div>
+              <p class="text-sm text-on-surface-variant leading-relaxed">The skin that stays after the weight goes. GLP-1 medications are changing how people lose weight — and leaving behind a skin challenge most of the internet hasn't caught up to yet.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Compression -->
+        <a href="/compression/best-shapewear/" class="block bg-white rounded-xl border border-neutral-muted p-6 hover:border-sage-green hover:shadow-card transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🩱</span>
+            <div>
+              <h3 class="font-bold text-on-surface group-hover:text-sage-green transition-colors mb-1">Compression & Shapewear</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">What actually holds — tested for real bodies. Most shapewear roundups aren't written for a pannus. We evaluated what actually works for apron belly specifically.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Masterguide -->
+        <a href="/non-surgical-solutions/" class="block bg-sage-green/5 rounded-xl border border-sage-green/30 p-6 hover:border-sage-green hover:shadow-card transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📋</span>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-on-surface group-hover:text-sage-green transition-colors">The Non-Surgical Master Guide</h3>
+                <span class="text-xs font-bold text-sage-green bg-sage-green/10 px-2 py-0.5 rounded-full">Start here</span>
+              </div>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Every option, ranked by evidence. Compression, collagen, RF devices, strength training, retinol — what the evidence actually says, and what realistic expectations look like.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Surgery -->
+        <a href="/surgery/tummy-tuck-vs-panniculectomy/" class="block bg-white rounded-xl border border-neutral-muted p-6 hover:border-sage-green hover:shadow-card transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <h3 class="font-bold text-on-surface group-hover:text-sage-green transition-colors mb-1">Surgery: What You Need to Know</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Tummy tuck vs. panniculectomy — the honest comparison. When is panniculectomy covered by insurance? The unbiased breakdown you won't find from a clinic.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Timeline -->
+        <a href="/timeline/how-long/" class="block bg-white rounded-xl border border-neutral-muted p-6 hover:border-sage-green hover:shadow-card transition-all group">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">⏱</span>
+            <div>
+              <h3 class="font-bold text-on-surface group-hover:text-sage-green transition-colors mb-1">Timelines & Real Expectations</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">How long does it actually take? Most content promises too much or offers no timeline at all. We looked at what the evidence actually shows about fat loss, skin retraction, and realistic milestones.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- RECOMMENDED PRODUCTS -->
+    <section class="bg-white border-y border-neutral-muted">
+      <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-2">What We Actually Recommend</h2>
+        <p class="text-sm text-on-surface-variant mb-8"><em>Disclosure: We may earn a commission if you purchase through our links, at no extra cost to you. We only recommend products we'd suggest to a close friend.</em></p>
+
+        <div class="grid sm:grid-cols-3 gap-5">
+          <!-- Honey Love -->
+          <div class="bg-background rounded-xl border border-neutral-muted p-5 flex flex-col">
+            <p class="text-xs font-bold text-sage-green uppercase tracking-wider mb-2">For compression — starting today</p>
+            <h3 class="font-bold text-on-surface mb-2">Honey Love High-Waisted Brief</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3 flex-1">The reinforced lower panel holds a pannus in place without rolling or cutting in. The most practical investment for day-to-day comfort.</p>
+            <p class="text-xs text-on-surface-variant italic mb-4">What it won't do: reduce the apron. What it will do: make the next 12 months significantly more comfortable.</p>
+            <a href="https://honeylove.com" rel="nofollow sponsored" target="_blank" class="text-sm font-semibold text-sage-green hover:underline">Shop Honey Love →</a>
+          </div>
+
+          <!-- Vital Proteins -->
+          <div class="bg-background rounded-xl border border-neutral-muted p-5 flex flex-col">
+            <p class="text-xs font-bold text-sage-green uppercase tracking-wider mb-2">For skin support — starting this week</p>
+            <h3 class="font-bold text-on-surface mb-2">Vital Proteins Collagen Peptides</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3 flex-1">Hydrolyzed collagen at 10g per day — the clinically studied dose. One scoop in coffee or a smoothie. 8–12 weeks for visible results.</p>
+            <p class="text-xs text-on-surface-variant italic mb-4">What it won't do: eliminate loose skin. What it will do: give your skin the raw materials to do its best work.</p>
+            <a href="https://www.vitalproteins.com" rel="nofollow sponsored" target="_blank" class="text-sm font-semibold text-sage-green hover:underline">Shop Vital Proteins →</a>
+          </div>
+
+          <!-- Derma Roller -->
+          <div class="bg-background rounded-xl border border-neutral-muted p-5 flex flex-col">
+            <p class="text-xs font-bold text-sage-green uppercase tracking-wider mb-2">For skin tightening — over 3–6 months</p>
+            <h3 class="font-bold text-on-surface mb-2">Derma Roller Kit (0.25mm)</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3 flex-1">Weekly use creates micro-channels that trigger collagen production. $15–25 on Amazon. Low investment, requires patience.</p>
+            <p class="text-xs text-on-surface-variant italic mb-4">What it won't do: replace significant loose skin. What it will do: improve texture and mild laxity over months of consistent use.</p>
+            <a href="https://www.amazon.com/s?k=derma+roller+body" rel="nofollow sponsored" target="_blank" class="text-sm font-semibold text-sage-green hover:underline">See options on Amazon →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ CTA -->
+    <section id="quiz" class="max-w-3xl mx-auto px-4 py-12 sm:py-16 scroll-mt-20">
+      <div class="bg-sage-green rounded-2xl p-8 sm:p-12 text-white">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3">Not Sure Where to Start?</h2>
+        <p class="text-white/90 leading-relaxed mb-6">Everyone's situation is different — how much you've lost, how long the skin has been stretched, whether you're still losing weight, what you've already tried. The quiz takes 60 seconds and gives you a personalized starting point based on where you actually are.</p>
+        <a href="#" class="inline-flex items-center justify-center px-6 py-3.5 bg-white text-sage-green font-bold rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          Take the Free Quiz →
+        </a>
+        <p class="text-white/70 text-sm mt-4">Or subscribe for our weekly breakdown of what's actually working — no spam.</p>
+      </div>
+    </section>
+
+    <!-- TRUST / ABOUT -->
+    <section class="bg-white border-y border-neutral-muted">
+      <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <div class="max-w-xl mx-auto text-center">
+          <div class="w-12 h-1 bg-dusty-rose mx-auto mb-6 rounded-full"></div>
+          <h2 class="text-2xl font-bold text-on-surface mb-6">Why You Can Trust What We Say Here</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4 text-left">
+            <p>Most information about apron belly comes from two sources: plastic surgeons who benefit financially from recommending surgery, and generic wellness sites that copy each other without checking the evidence.</p>
+            <p>We're neither.</p>
+            <p>Apron Belly Guide exists because when we searched for honest, non-surgical answers, we couldn't find them. Everything led back to a consultation room.</p>
+            <p>Our standard is simple: <strong class="text-on-surface">we only recommend what we'd suggest to a close friend who asked us directly.</strong> That means being honest when the evidence is weak, clear about what non-surgical options can and can't do, and covering surgery fairly — including when it's the right answer — without having a financial stake in that choice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-3xl mx-auto px-4 py-12 sm:py-16 scroll-mt-20">
+      <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-8 text-center">Frequently Asked Questions</h2>
+
+      <div class="space-y-2">
+        {[
+          {
+            q: 'What is apron belly?',
+            a: 'Apron belly — also called pannus stomach — is the panel of excess skin and fat that hangs over the lower abdomen. It forms when the skin stretches from weight gain, pregnancy, or rapid fat accumulation, and doesn\'t fully retract. It can involve fat alone, skin alone, or — most commonly — both. The fat component responds to weight loss; the skin component responds more slowly and may need additional interventions.'
+          },
+          {
+            q: 'Can apron belly go away without surgery?',
+            a: 'The fat component can reduce significantly through overall weight loss — Ozempic, diet, exercise, or a combination. The skin component is more variable: it continues retracting for up to two years after weight stabilizes, and how much it retracts depends on age, genetics, how long it was stretched, and how quickly the weight was lost. Many people see meaningful improvement through non-surgical approaches. The honest answer depends heavily on your specific situation.'
+          },
+          {
+            q: 'Does compression help apron belly?',
+            a: 'Yes — for daily management, it\'s one of the most immediately effective tools. A well-fitted compression garment physically supports the apron area, eliminates chafing, and smooths your silhouette under clothing. It won\'t reduce or tighten the skin, but it makes day-to-day life significantly more comfortable while other interventions work. The key is fit — generic shapewear often isn\'t designed for the specific shape of a pannus.'
+          },
+          {
+            q: 'How long does it take for apron belly to reduce?',
+            a: 'There\'s no single timeline. The fat component reduces as you lose weight overall. The skin component is slower: retraction continues for 12–24 months after your weight stabilizes. Compression provides immediate improvement in appearance; collagen and RF devices work over 3–6 months; skin retraction on its own takes the longest and depends on factors you can influence but not fully control.'
+          },
+          {
+            q: 'Is apron belly the same as FUPA?',
+            a: 'Not exactly. Apron belly (pannus) is the hanging panel of skin and fat below the navel. FUPA — fat upper pubic area — refers to fat accumulation specifically at the pubic mound, above the genitals. They\'re adjacent areas, and some people use the terms interchangeably, but they\'re anatomically different. The non-surgical approaches for reducing both involve overall fat loss.'
+          }
+        ].map(({q, a}) => (
+          <details class="group bg-white rounded-xl border border-neutral-muted overflow-hidden">
+            <summary class="flex items-center justify-between p-5 cursor-pointer list-none gap-4">
+              <span class="font-semibold text-on-surface">{q}</span>
+              <svg class="shrink-0 transition-transform group-open:rotate-180 text-on-surface-variant" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-on-surface-variant text-sm leading-relaxed">{a}</div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
