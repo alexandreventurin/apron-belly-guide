@@ -31,6 +31,14 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
+      name: 'What is a pannus stomach?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pannus stomach is the medical term for apron belly. The words refer to the same condition: the hanging fold of excess skin and fat below the lower abdomen. Doctors and surgeons use "pannus" or "panniculus"; most people call it apron belly. The causes, treatments, and non-surgical options are identical regardless of which term you use.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'Can apron belly go away without surgery?',
       acceptedAnswer: {
         '@type': 'Answer',
@@ -98,15 +106,23 @@ const faqSchema = {
           <p>If you've spent time Googling apron belly and come away with two kinds of answers — "you need surgery" or "just learn to love your body" — you're not alone, and neither answer is complete.</p>
           <p>Most people dealing with apron belly aren't looking for surgery. They want to understand what's happening, know what they can realistically do about it, and find a source that isn't trying to book them into a consultation room.</p>
           <p>That's why this site exists.</p>
-          <p>Over 50 million Americans live with apron belly — the panel of excess skin and fat that forms in the lower abdomen after weight gain, pregnancy, or significant weight loss. It's one of the most searched health topics with almost no reliable, unbiased information.</p>
-          <p>We're not a clinic. We don't perform procedures. We don't make money when you book surgery.</p>
-          <p>What we do: research every non-surgical option, be honest about what the evidence actually shows, and help you figure out which combination makes sense for where you are right now.</p>
+          <details class="group">
+            <summary class="mt-4 flex items-center gap-2 cursor-pointer list-none text-sage-green text-sm font-semibold hover:underline w-fit">
+              <span class="group-open:hidden">Read more ↓</span>
+              <span class="hidden group-open:inline">Show less ↑</span>
+            </summary>
+            <div class="mt-4 space-y-4">
+              <p>Over 50 million Americans live with apron belly — the panel of excess skin and fat that forms in the lower abdomen after weight gain, pregnancy, or significant weight loss. It's one of the most searched health topics with almost no reliable, unbiased information.</p>
+              <p>We're not a clinic. We don't perform procedures. We don't make money when you book surgery.</p>
+              <p>What we do: research every non-surgical option, be honest about what the evidence actually shows, and help you figure out which combination makes sense for where you are right now.</p>
+              <blockquote class="border-l-4 border-sage-green pl-5 italic">
+                <p class="mb-1">"Is there a master post here or something about how to prevent loose skin? I can't afford surgery and I'd love to get ahead of it."</p>
+                <footer class="text-sm not-italic text-on-surface-variant/70">— r/loseit, 286 upvotes</footer>
+              </blockquote>
+              <p>That comment was the beginning of this guide. We built the post they were asking for.</p>
+            </div>
+          </details>
         </div>
-        <blockquote class="mt-8 border-l-4 border-sage-green pl-5 italic text-on-surface-variant">
-          <p class="mb-1">"Is there a master post here or something about how to prevent loose skin? I can't afford surgery and I'd love to get ahead of it."</p>
-          <footer class="text-sm not-italic text-on-surface-variant/70">— r/loseit, 286 upvotes</footer>
-        </blockquote>
-        <p class="mt-5 text-on-surface-variant">That comment was the beginning of this guide. We built the post they were asking for.</p>
       </div>
     </section>
 
@@ -118,6 +134,19 @@ const faqSchema = {
         <p>It's more common than most people realize: it affects people who have lost a significant amount of weight, people who have been pregnant (especially multiple times), and people who have carried excess weight for a long period of time. It can be entirely fat, mostly excess skin, or — most commonly — a combination of both. That distinction matters more than most people know, because fat and skin respond to different interventions on very different timelines.</p>
         <p><strong class="text-on-surface">What apron belly is not:</strong> a sign that you did something wrong. It's a mechanical consequence of how skin and fat behave under extended tension. The people who develop it most prominently are often those who made the hardest changes — losing large amounts of weight, going through multiple pregnancies, or managing conditions that affect body composition.</p>
         <p>It's also not a single, fixed problem. A 30-pound weight loss looks different than a 130-pound weight loss. A postpartum pannus at 28 looks different than one at 52. The right approach depends entirely on which version of this situation you're dealing with — which is why we built this guide around your specific path.</p>
+      </div>
+    </section>
+
+    <!-- PANNUS STOMACH -->
+    <section class="bg-white border-y border-neutral-muted">
+      <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-bold text-on-surface mb-6">What Is a Pannus Stomach? (Same Thing, Different Name)</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-4 text-body-md">
+          <p>If you searched "pannus stomach" and landed here: you're in exactly the right place. <strong class="text-on-surface">Pannus stomach is the medical term for apron belly.</strong> Same condition, same tissue, same treatments — just two names for the same hanging fold of skin and fat below the lower abdomen.</p>
+          <p>The word <em>pannus</em> comes from Latin, meaning "cloth" or "fold." In clinical settings, doctors use <em>pannus</em> or <em>panniculus</em> to describe the tissue. Surgeons classify it by how far it hangs: Grade 1 (covers the pubic hairline) up to Grade 5 (extends past the knees in severe cases). Most people searching for answers are Grade 1–3.</p>
+          <p>Most people who live with it call it apron belly. Most doctors who treat it say pannus. Both names point to the same mechanical reality: skin that stretched beyond its elastic limit and didn't fully return.</p>
+          <p>Everything on this site applies equally to both. Start with the <a href="/non-surgical-solutions/" class="text-sage-green hover:underline font-medium">Non-Surgical Guide</a> — it covers the full picture.</p>
+        </div>
       </div>
     </section>
 
@@ -286,10 +315,18 @@ const faqSchema = {
           <div class="w-12 h-1 bg-dusty-rose mx-auto mb-6 rounded-full"></div>
           <h2 class="text-2xl font-bold text-on-surface mb-6">Why You Can Trust What We Say Here</h2>
           <div class="text-on-surface-variant leading-relaxed space-y-4 text-left">
-            <p>Most information about apron belly comes from two sources: plastic surgeons who benefit financially from recommending surgery, and generic wellness sites that copy each other without checking the evidence.</p>
-            <p>We're neither.</p>
-            <p>Apron Belly Guide exists because when we searched for honest, non-surgical answers, we couldn't find them. Everything led back to a consultation room.</p>
-            <p>Our standard is simple: <strong class="text-on-surface">we only recommend what we'd suggest to a close friend who asked us directly.</strong> That means being honest when the evidence is weak, clear about what non-surgical options can and can't do, and covering surgery fairly — including when it's the right answer — without having a financial stake in that choice.</p>
+            <p>Our standard is simple: <strong class="text-on-surface">we only recommend what we'd suggest to a close friend who asked us directly.</strong> That means being honest when the evidence is weak, and clear about what non-surgical options can and can't do.</p>
+            <details class="group">
+              <summary class="mt-2 flex items-center gap-2 cursor-pointer list-none text-sage-green text-sm font-semibold hover:underline w-fit">
+                <span class="group-open:hidden">Read more ↓</span>
+                <span class="hidden group-open:inline">Show less ↑</span>
+              </summary>
+              <div class="mt-4 space-y-4">
+                <p>Most information about apron belly comes from two sources: plastic surgeons who benefit financially from recommending surgery, and generic wellness sites that copy each other without checking the evidence.</p>
+                <p>We're neither. Apron Belly Guide exists because when we searched for honest, non-surgical answers, we couldn't find them. Everything led back to a consultation room.</p>
+                <p>We cover surgery fairly — including when it's the right answer — without having a financial stake in that choice.</p>
+              </div>
+            </details>
           </div>
         </div>
       </div>
