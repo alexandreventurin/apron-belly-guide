@@ -646,13 +646,32 @@ import QuizLayout from '../../layouts/QuizLayout.astro';
     e.preventDefault();
     const name  = document.getElementById('gate-name').value.trim();
     const email = document.getElementById('gate-email').value.trim();
+    if (!email) return;
     if (name)  localStorage.setItem('qz_name', name);
     if (email) localStorage.setItem('qz_email', email);
 
-    // TODO: POST to email service when ConvertKit/MailerLite is configured
-
     const bucket = _qzBucket();
     const params = _qzParams();
+    const pObj   = Object.fromEntries(new URLSearchParams(params));
+    const a      = _qz.answers;
+
+    // Fire-and-forget — redirect is never blocked by the save
+    fetch('/api/quiz-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name || null,
+        email,
+        bucket,
+        q1: a.q1 || null, q2: a.q2 || null, q3: a.q3 || null, q4: a.q4 || null,
+        q5: a.q5 || null, q6: a.q6 || null, q7: a.q7 || null,
+        origin:    pObj.origin   || null,
+        timeline:  pObj.timeline || null,
+        age_range: pObj.age      || null,
+        tried:     pObj.tried    || null,
+      }),
+    }).catch(function() {});
+
     window.location.href = '/quiz/results/' + bucket + '/' + (params ? '?' + params : '');
   }
 
