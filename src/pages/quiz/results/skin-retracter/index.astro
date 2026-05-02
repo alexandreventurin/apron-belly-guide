@@ -1,0 +1,238 @@
+---
+import QuizLayout from '../../../../layouts/QuizLayout.astro';
+---
+
+<QuizLayout
+  title="Your Result: The Skin Retracter — Apron Belly Guide"
+  description="Your weight is stable — now the question is what your skin will do. Here's your protocol for the 12–24 month retraction window."
+>
+
+<style is:global>
+*, *::before, *::after { box-sizing: border-box; }
+
+.res-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+.res-header {
+  padding: 2rem 1.25rem 0;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.res-logo {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #2D2A26;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.res-logo:hover { color: #7A9E7E; }
+
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #EFF6EF;
+  border: 1.5px solid #C3D9C4;
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4F7A52;
+  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+}
+.res-badge::before { content: '●'; font-size: 0.5rem; color: #7A9E7E; }
+
+h1.res-headline {
+  font-size: clamp(1.55rem, 4.5vw, 2.2rem);
+  font-weight: 800;
+  color: #2D2A26;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.res-diag {
+  font-size: 1.05rem;
+  color: #6B6560;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #EBE7E0;
+}
+.res-section { margin-bottom: 2rem; }
+.res-section h2 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A09890;
+  margin-bottom: 0.75rem;
+}
+.res-section p { font-size: 0.97rem; color: #4A4540; line-height: 1.75; }
+
+.res-good { background: #F4FAF4; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #7A9E7E; }
+.res-honest { background: #FAF8F5; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #D4CFC9; }
+
+.res-protocol {
+  margin: 2.5rem 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+}
+.res-protocol h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.res-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+.res-step { display: flex; gap: 1rem; align-items: flex-start; }
+.res-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #7A9E7E;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.res-step-body strong {
+  display: block;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 0.35rem;
+}
+.res-step-body p { font-size: 0.9rem; color: #6B6560; line-height: 1.7; margin: 0; }
+
+.res-ctas {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.res-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7A9E7E;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 14px rgba(122,158,126,0.32);
+  text-align: center;
+}
+.res-cta-primary:hover {
+  opacity: 0.93;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(122,158,126,0.38);
+}
+.res-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #4A4540;
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid #E8E4DE;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: center;
+}
+.res-cta-secondary:hover { border-color: #7A9E7E; background: #F6FAF6; }
+.res-retake {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #C4BDB6;
+}
+.res-retake a { color: #A09890; text-decoration: none; }
+.res-retake a:hover { color: #7A9E7E; }
+
+@media (min-width: 640px) {
+  .res-header { padding: 2rem 2rem 0; }
+  .res-wrap { padding: 0 2rem 5rem; }
+}
+</style>
+
+<header class="res-header">
+  <a href="/" class="res-logo">Apron Belly Guide</a>
+</header>
+
+<main class="res-wrap">
+  <p class="res-badge">Your Profile: The Skin Retracter</p>
+  <h1 class="res-headline">Your Weight Is Where You Want It. Now Your Skin Needs to Catch Up.</h1>
+  <p class="res-diag">The fat loss work is largely done. What remains is primarily a skin issue — and skin operates on a different timeline than fat. The good news: the retraction window is still open.</p>
+
+  <div class="res-section">
+    <h2>What your answers show</h2>
+    <p>You've finished losing weight, but the skin hasn't fully retracted yet. Skin retraction continues for up to 24 months after weight stabilizes — so depending on where you are in that window, you may still be in active retraction. Supporting this process actively produces measurably better outcomes than waiting passively.</p>
+  </div>
+
+  <div class="res-section res-good">
+    <h2>The good news</h2>
+    <p>The 12–24 month retraction window is real and documented. Skin that looks one way at 6 months often looks meaningfully different at 18 months — especially with active collagen support and skin stimulation during this period.</p>
+  </div>
+
+  <div class="res-section res-honest" style="margin-top:1rem;">
+    <h2>The honest part</h2>
+    <p>How much skin will retract depends on factors you can't fully control: age, genetics, how long the skin was stretched, how much was lost. For some people, 18 months of active support produces dramatic improvement. For others — particularly with significant laxity after major weight loss — non-surgical approaches improve quality and texture but don't eliminate structural excess skin.</p>
+  </div>
+
+  <div class="res-protocol">
+    <h2>Your starting protocol — in priority order</h2>
+    <div class="res-steps">
+      <div class="res-step">
+        <div class="res-step-num">1</div>
+        <div class="res-step-body">
+          <strong>RF device 2–3x per week</strong>
+          <p>Radiofrequency is the most evidence-backed at-home skin tightening technology for body use. Consistent use over 3–6 months produces real improvement in skin texture and mild laxity. TriPollar has the most clinical backing in the at-home category.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">2</div>
+        <div class="res-step-body">
+          <strong>Weekly microneedling + daily collagen</strong>
+          <p>The combined protocol — mechanical stimulation (0.5mm derma roller) plus biochemical support (10g/day hydrolyzed collagen peptides) — produces better results than either alone. Both are low cost and can run in parallel with RF.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">3</div>
+        <div class="res-step-body">
+          <strong>Strength training — especially if you haven't been</strong>
+          <p>If you lost weight without building muscle, this is the highest-impact thing you can do now. Muscle provides structure beneath the skin that changes the appearance of the area even without any additional skin retraction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="res-ctas">
+    <a href="/skin-tightening/without-surgery/" class="res-cta-primary">Read: Skin Tightening Without Surgery →</a>
+    <a href="/non-surgical-solutions/" class="res-cta-secondary">Browse All Non-Surgical Options</a>
+  </div>
+
+  <p class="res-retake">Not quite right? <a href="/quiz/">Retake the assessment</a></p>
+</main>
+
+</QuizLayout>

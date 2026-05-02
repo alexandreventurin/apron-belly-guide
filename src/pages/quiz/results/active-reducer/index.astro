@@ -1,0 +1,238 @@
+---
+import QuizLayout from '../../../../layouts/QuizLayout.astro';
+---
+
+<QuizLayout
+  title="Your Result: The Active Reducer — Apron Belly Guide"
+  description="You're working on both fat and skin at once. Here's the sequence that produces the best combined outcome."
+>
+
+<style is:global>
+*, *::before, *::after { box-sizing: border-box; }
+
+.res-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+.res-header {
+  padding: 2rem 1.25rem 0;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.res-logo {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #2D2A26;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.res-logo:hover { color: #7A9E7E; }
+
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #EFF6EF;
+  border: 1.5px solid #C3D9C4;
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4F7A52;
+  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+}
+.res-badge::before { content: '●'; font-size: 0.5rem; color: #7A9E7E; }
+
+h1.res-headline {
+  font-size: clamp(1.55rem, 4.5vw, 2.2rem);
+  font-weight: 800;
+  color: #2D2A26;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.res-diag {
+  font-size: 1.05rem;
+  color: #6B6560;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #EBE7E0;
+}
+.res-section { margin-bottom: 2rem; }
+.res-section h2 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A09890;
+  margin-bottom: 0.75rem;
+}
+.res-section p { font-size: 0.97rem; color: #4A4540; line-height: 1.75; }
+
+.res-good { background: #F4FAF4; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #7A9E7E; }
+.res-honest { background: #FAF8F5; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #D4CFC9; }
+
+.res-protocol {
+  margin: 2.5rem 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+}
+.res-protocol h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.res-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+.res-step { display: flex; gap: 1rem; align-items: flex-start; }
+.res-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #7A9E7E;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.res-step-body strong {
+  display: block;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 0.35rem;
+}
+.res-step-body p { font-size: 0.9rem; color: #6B6560; line-height: 1.7; margin: 0; }
+
+.res-ctas {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.res-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7A9E7E;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 14px rgba(122,158,126,0.32);
+  text-align: center;
+}
+.res-cta-primary:hover {
+  opacity: 0.93;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(122,158,126,0.38);
+}
+.res-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #4A4540;
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid #E8E4DE;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: center;
+}
+.res-cta-secondary:hover { border-color: #7A9E7E; background: #F6FAF6; }
+.res-retake {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #C4BDB6;
+}
+.res-retake a { color: #A09890; text-decoration: none; }
+.res-retake a:hover { color: #7A9E7E; }
+
+@media (min-width: 640px) {
+  .res-header { padding: 2rem 2rem 0; }
+  .res-wrap { padding: 0 2rem 5rem; }
+}
+</style>
+
+<header class="res-header">
+  <a href="/" class="res-logo">Apron Belly Guide</a>
+</header>
+
+<main class="res-wrap">
+  <p class="res-badge">Your Profile: The Active Reducer</p>
+  <h1 class="res-headline">You're Working on Both Components at Once — Here's the Sequence That Works</h1>
+  <p class="res-diag">You have apron belly and you're still in the fat loss phase. This is actually a useful position — you can address the fat component and the skin support simultaneously, and what you do now affects both.</p>
+
+  <div class="res-section">
+    <h2>What your answers show</h2>
+    <p>Your apron belly has both a fat component (which responds to continued fat loss) and a skin component (which responds to collagen support and time). You're in the window where addressing both in parallel produces the best combined outcome — better than doing them sequentially.</p>
+  </div>
+
+  <div class="res-section res-good">
+    <h2>The good news</h2>
+    <p>As you continue losing weight, the fat component will decrease — and the interventions you start now will support the skin component simultaneously. The two processes reinforce each other when done right.</p>
+  </div>
+
+  <div class="res-section res-honest" style="margin-top:1rem;">
+    <h2>The honest part</h2>
+    <p>As you lose fat, the skin component often becomes more visible before it improves. This is normal — it means you're making progress, not that something went wrong. The skin retraction timeline runs behind the fat loss timeline by months, not days.</p>
+  </div>
+
+  <div class="res-protocol">
+    <h2>Your starting protocol — in priority order</h2>
+    <div class="res-steps">
+      <div class="res-step">
+        <div class="res-step-num">1</div>
+        <div class="res-step-body">
+          <strong>Protein first, always</strong>
+          <p>On a caloric deficit, adequate protein (0.7–1g per lb of goal weight) is the most important nutritional variable for preserving muscle and supporting collagen synthesis simultaneously. This is non-negotiable.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">2</div>
+        <div class="res-step-body">
+          <strong>Start the collagen + microneedling protocol now</strong>
+          <p>Don't wait until you've finished losing weight. 10g/day hydrolyzed collagen peptides plus weekly derma roller (0.5mm) on the abdomen works better when started during the fat loss phase.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">3</div>
+        <div class="res-step-body">
+          <strong>Compound strength training 2–3x per week</strong>
+          <p>Builds muscle that fills the space under skin as fat is lost. The visual difference between someone who loses weight with muscle vs. without is dramatic — and it's one of the most controllable variables you have.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="res-ctas">
+    <a href="/non-surgical-solutions/" class="res-cta-primary">Read the Full Non-Surgical Guide →</a>
+    <a href="/weight-loss/how-to-prevent-loose-skin/" class="res-cta-secondary">Prevention Protocol During Weight Loss</a>
+  </div>
+
+  <p class="res-retake">Not quite right? <a href="/quiz/">Retake the assessment</a></p>
+</main>
+
+</QuizLayout>

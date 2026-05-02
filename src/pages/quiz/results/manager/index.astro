@@ -1,0 +1,238 @@
+---
+import QuizLayout from '../../../../layouts/QuizLayout.astro';
+---
+
+<QuizLayout
+  title="Your Result: The Manager — Apron Belly Guide"
+  description="Here's an honest picture of significant apron belly — and a practical starting protocol that makes a real difference in daily life."
+>
+
+<style is:global>
+*, *::before, *::after { box-sizing: border-box; }
+
+.res-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+.res-header {
+  padding: 2rem 1.25rem 0;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.res-logo {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #2D2A26;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.res-logo:hover { color: #7A9E7E; }
+
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #EFF6EF;
+  border: 1.5px solid #C3D9C4;
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4F7A52;
+  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+}
+.res-badge::before { content: '●'; font-size: 0.5rem; color: #7A9E7E; }
+
+h1.res-headline {
+  font-size: clamp(1.55rem, 4.5vw, 2.2rem);
+  font-weight: 800;
+  color: #2D2A26;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.res-diag {
+  font-size: 1.05rem;
+  color: #6B6560;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #EBE7E0;
+}
+.res-section { margin-bottom: 2rem; }
+.res-section h2 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A09890;
+  margin-bottom: 0.75rem;
+}
+.res-section p { font-size: 0.97rem; color: #4A4540; line-height: 1.75; }
+
+.res-good { background: #F4FAF4; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #7A9E7E; }
+.res-honest { background: #FAF8F5; border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 3px solid #D4CFC9; }
+
+.res-protocol {
+  margin: 2.5rem 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+}
+.res-protocol h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.res-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+.res-step { display: flex; gap: 1rem; align-items: flex-start; }
+.res-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #7A9E7E;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.res-step-body strong {
+  display: block;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #2D2A26;
+  margin-bottom: 0.35rem;
+}
+.res-step-body p { font-size: 0.9rem; color: #6B6560; line-height: 1.7; margin: 0; }
+
+.res-ctas {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #EBE7E0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.res-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7A9E7E;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 14px rgba(122,158,126,0.32);
+  text-align: center;
+}
+.res-cta-primary:hover {
+  opacity: 0.93;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(122,158,126,0.38);
+}
+.res-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #4A4540;
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid #E8E4DE;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: center;
+}
+.res-cta-secondary:hover { border-color: #7A9E7E; background: #F6FAF6; }
+.res-retake {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #C4BDB6;
+}
+.res-retake a { color: #A09890; text-decoration: none; }
+.res-retake a:hover { color: #7A9E7E; }
+
+@media (min-width: 640px) {
+  .res-header { padding: 2rem 2rem 0; }
+  .res-wrap { padding: 0 2rem 5rem; }
+}
+</style>
+
+<header class="res-header">
+  <a href="/" class="res-logo">Apron Belly Guide</a>
+</header>
+
+<main class="res-wrap">
+  <p class="res-badge">Your Profile: The Manager</p>
+  <h1 class="res-headline">Here's an Honest Picture — and a Practical Starting Point</h1>
+  <p class="res-diag">You're dealing with significant, long-standing skin laxity. Non-surgical approaches can produce real improvement — but honest expectations matter here more than anywhere else.</p>
+
+  <div class="res-section">
+    <h2>What your answers show</h2>
+    <p>Based on what you've shared — significant laxity, likely for some time — you're in the part of the spectrum where non-surgical interventions produce improvement in quality, comfort, and mild tightening, but are unlikely to fully resolve structural excess skin. Knowing this clearly is actually useful, because it helps you focus on what will make a real difference in your day-to-day life while the longer-term picture becomes clearer.</p>
+  </div>
+
+  <div class="res-section res-good">
+    <h2>The good news</h2>
+    <p>Compression alone can produce immediate, meaningful improvement in daily comfort and appearance. Collagen and skin tightening protocols work over time. You don't have to choose between "do everything" and "do nothing" — there's a sustainable protocol that makes a genuine difference.</p>
+  </div>
+
+  <div class="res-section res-honest" style="margin-top:1rem;">
+    <h2>The honest part</h2>
+    <p>For significant structural apron belly — particularly after major weight loss, at older ages, or after many years of stretch — surgery may be the only intervention that fully addresses excess skin. This isn't a failure of non-surgical options; it's the honest limit of what they can do at certain severity levels. Understanding when to have that conversation is part of what we cover.</p>
+  </div>
+
+  <div class="res-protocol">
+    <h2>Your starting protocol — in priority order</h2>
+    <div class="res-steps">
+      <div class="res-step">
+        <div class="res-step-num">1</div>
+        <div class="res-step-body">
+          <strong>Compression as a daily foundation</strong>
+          <p>A well-fitted garment with a reinforced lower panel manages the apron immediately and meaningfully. This isn't a workaround — it's the right tool for day-to-day function while longer processes run. Getting the fit right is everything.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">2</div>
+        <div class="res-step-body">
+          <strong>Daily collagen + weekly microneedling</strong>
+          <p>Improves skin quality, texture, and provides mild tightening over months. Not dramatic for significant laxity, but real and cumulative. 10g/day hydrolyzed collagen peptides plus 0.5mm derma roller weekly.</p>
+        </div>
+      </div>
+      <div class="res-step">
+        <div class="res-step-num">3</div>
+        <div class="res-step-body">
+          <strong>Understand your surgical options clearly</strong>
+          <p>Not as a commitment, but as information. Knowing what panniculectomy involves, when insurance covers it, and what realistic criteria are — lets you make a real decision rather than an anxious one. We cover this without a sales agenda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="res-ctas">
+    <a href="/compression/best-shapewear/" class="res-cta-primary">Best Shapewear for Apron Belly →</a>
+    <a href="/surgery/panniculectomy-cost/" class="res-cta-secondary">Panniculectomy: Costs and Insurance Coverage</a>
+  </div>
+
+  <p class="res-retake">Not quite right? <a href="/quiz/">Retake the assessment</a></p>
+</main>
+
+</QuizLayout>

@@ -1,0 +1,759 @@
+---
+import QuizLayout from '../../layouts/QuizLayout.astro';
+---
+
+<QuizLayout>
+
+  <!-- Progress bar -->
+  <div id="qz-progress" class="qz-progress-hidden">
+    <div id="qz-fill"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="qz-header">
+    <a href="/" class="qz-logo">Apron Belly Guide</a>
+    <span id="qz-counter" class="qz-counter-hidden" aria-label="Question progress"></span>
+    <button id="qz-back" class="qz-back-hidden" onclick="quizBack()" aria-label="Go back">← Back</button>
+  </header>
+
+  <main id="qz-main">
+
+    <!-- ── INTRO ── -->
+    <div id="screen-intro" class="qz-screen qz-visible">
+      <p class="qz-eyebrow">Personalized Assessment</p>
+      <h1>What's Actually Happening With Your Skin — And What Will Help</h1>
+      <p class="qz-sub">Most information about apron belly treats everyone the same. Your situation isn't generic — and neither should your starting point be.</p>
+      <ul class="qz-bullets">
+        <li>7 questions based on the clinical factors that actually determine outcomes</li>
+        <li>Your answers map to a specific protocol — not generic advice</li>
+        <li>Takes about 2 minutes</li>
+      </ul>
+      <button class="qz-btn-primary" onclick="quizStart()">Start the Assessment (2 min) →</button>
+      <p class="qz-privacy">Based on current research on collagen remodeling, skin laxity, and fat loss physiology. Your answers are used only to generate your personalized result.</p>
+    </div>
+
+    <!-- ── Q1 ── -->
+    <div id="screen-q1" class="qz-screen qz-hidden">
+      <p class="qz-qnum">1 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">Which of these best describes where you are right now?</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q1','a')">
+          <span class="qz-letter">A</span>
+          <span>I'm currently losing weight and want to protect my skin before loose skin becomes a problem</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q1','b')">
+          <span class="qz-letter">B</span>
+          <span>I have apron belly and I'm still losing weight — I want to reduce both the fat and the skin</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q1','c')">
+          <span class="qz-letter">C</span>
+          <span>I've mostly finished losing weight, but the loose skin hasn't caught up yet</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q1','d')">
+          <span class="qz-letter">D</span>
+          <span>My weight has been stable for a while — I'm dealing with significant loose skin and want real options</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q1','e')">
+          <span class="qz-letter">E</span>
+          <span>I want to understand honestly whether surgery makes sense for me</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q1')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q1">Where you are in the process determines which interventions are relevant. Someone still losing weight needs a different approach than someone whose weight has been stable for two years. This is the single question that most affects what we recommend.</p>
+      </div>
+    </div>
+
+    <!-- ── Q2 ── -->
+    <div id="screen-q2" class="qz-screen qz-hidden">
+      <p class="qz-qnum">2 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">How did your apron belly develop?</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q2','a')">
+          <span class="qz-letter">A</span>
+          <span>Significant weight loss — 50 lbs or more</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q2','b')">
+          <span class="qz-letter">B</span>
+          <span>One pregnancy</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q2','c')">
+          <span class="qz-letter">C</span>
+          <span>Multiple pregnancies</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q2','d')">
+          <span class="qz-letter">D</span>
+          <span>Weight loss on Ozempic, Wegovy, or another GLP-1 medication</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q2','e')">
+          <span class="qz-letter">E</span>
+          <span>A combination of pregnancy and weight changes</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q2','f')">
+          <span class="qz-letter">F</span>
+          <span>I'm not entirely sure</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q2')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q2">The origin affects the structure of what you're dealing with. Post-pregnancy apron belly often involves separated abdominal muscles (diastasis recti) — which changes what exercises are safe. Rapid GLP-1 weight loss produces a different skin challenge than gradual loss over years. The cause shapes the protocol.</p>
+      </div>
+    </div>
+
+    <!-- ── Q3 ── -->
+    <div id="screen-q3" class="qz-screen qz-hidden">
+      <p class="qz-qnum">3 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">When you stand naturally, your lower abdomen...</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q3','a')">
+          <span class="qz-letter">A</span>
+          <span>Has a slight softness or fold — I notice it, but it's not visible through most clothes</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q3','b')">
+          <span class="qz-letter">B</span>
+          <span>Hangs clearly — visible through fitted clothing, I'm conscious of it throughout the day</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q3','c')">
+          <span class="qz-letter">C</span>
+          <span>Hangs significantly — it affects my clothing choices every day</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q3','d')">
+          <span class="qz-letter">D</span>
+          <span>Hangs significantly and causes physical problems — skin irritation, chafing, or hygiene challenges</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q3')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q3">Clinically, the pannus is graded by how far it extends and whether it causes functional problems. This matters because mild laxity responds differently to non-surgical interventions than significant structural hanging — and honest expectations start here.</p>
+      </div>
+    </div>
+
+    <!-- ── Q4 ── -->
+    <div id="screen-q4" class="qz-screen qz-hidden">
+      <p class="qz-qnum">4 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">How long has the skin been stretched or hanging this way?</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q4','a')">
+          <span class="qz-letter">A</span>
+          <span>Less than 12 months — I'm still early in this</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q4','b')">
+          <span class="qz-letter">B</span>
+          <span>1–3 years</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q4','c')">
+          <span class="qz-letter">C</span>
+          <span>3–10 years</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q4','d')">
+          <span class="qz-letter">D</span>
+          <span>More than 10 years — this has been part of my body for a long time</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q4')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q4">This is one of the most important variables people don't know matters. Skin stretched for 10+ years has undergone structural changes in its collagen architecture that are different from skin stretched for 12 months. Longer stretch time means more conservative realistic expectations — and that honesty changes what we recommend.</p>
+      </div>
+    </div>
+
+    <!-- ── Q5 ── -->
+    <div id="screen-q5" class="qz-screen qz-hidden">
+      <p class="qz-qnum">5 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">Have you tried anything specifically aimed at this?</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q5','a')">
+          <span class="qz-letter">A</span>
+          <span>Nothing yet — I'm still researching my options</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q5','b')">
+          <span class="qz-letter">B</span>
+          <span>Mostly diet and exercise</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q5','c')">
+          <span class="qz-letter">C</span>
+          <span>Compression or shapewear</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q5','d')">
+          <span class="qz-letter">D</span>
+          <span>Supplements, creams, or at-home devices</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q5','e')">
+          <span class="qz-letter">E</span>
+          <span>Multiple approaches over a sustained period — with limited results</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q5')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q5">There's no point recommending something you've already tried consistently without results. If you've been doing everything right for months and aren't seeing progress, that's diagnostic information in itself — and it changes the conversation.</p>
+      </div>
+    </div>
+
+    <!-- ── Q6 ── -->
+    <div id="screen-q6" class="qz-screen qz-hidden">
+      <p class="qz-qnum">6 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">Which of these best describes your current situation?</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q6','a')">
+          <span class="qz-letter">A</span>
+          <span>I don't know where to start — there's too much conflicting information out there</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q6','b')">
+          <span class="qz-letter">B</span>
+          <span>I've started things but struggle to stay consistent long enough to see results</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q6','c')">
+          <span class="qz-letter">C</span>
+          <span>I've been consistent, but haven't seen the results I expected</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q6','d')">
+          <span class="qz-letter">D</span>
+          <span>I understand the non-surgical options — I'm trying to decide if surgery is the right answer for my case</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q6')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q6">The same protocol fails for different reasons. Someone who can't find reliable information needs a clear starting point. Someone consistent but not seeing results may be at the wrong intensity — or dealing with structural laxity that requires a different conversation. This shapes the framing of what we recommend.</p>
+      </div>
+    </div>
+
+    <!-- ── Q7 ── -->
+    <div id="screen-q7" class="qz-screen qz-hidden">
+      <p class="qz-qnum">7 <span class="qz-qof">of 7</span></p>
+      <h2 class="qz-question">Your age range:</h2>
+      <div class="qz-options">
+        <button class="qz-opt" onclick="quizAnswer('q7','a')">
+          <span class="qz-letter">A</span>
+          <span>Under 35</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q7','b')">
+          <span class="qz-letter">B</span>
+          <span>35–44</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q7','c')">
+          <span class="qz-letter">C</span>
+          <span>45–54</span>
+        </button>
+        <button class="qz-opt" onclick="quizAnswer('q7','d')">
+          <span class="qz-letter">D</span>
+          <span>55 or older</span>
+        </button>
+      </div>
+      <div class="qz-why">
+        <button class="qz-why-btn" onclick="quizToggleWhy('q7')">Why we ask this</button>
+        <p class="qz-why-text qz-hidden" id="why-q7">Collagen and elastin production decline steadily after your mid-30s — this is a genuine biological factor, not a judgment. It affects how quickly skin remodels and retracts, and it changes the realistic timeline and intervention priorities for your specific situation.</p>
+      </div>
+      <p class="qz-kbd-hint">Tip: press A–D or 1–4 to select</p>
+    </div>
+
+    <!-- ── GATE ── -->
+    <div id="screen-gate" class="qz-screen qz-hidden">
+      <p class="qz-eyebrow">Almost there</p>
+      <h2 id="gate-headline" class="qz-question qz-gate-headline">Based on your answers, I've identified your specific situation.</h2>
+      <p class="qz-gate-body">I've put together a personalized breakdown — including what the evidence shows for cases like yours, a prioritized starting protocol, and realistic timelines. Where should I send it?</p>
+      <form id="gate-form" onsubmit="quizSubmitGate(event)" class="qz-gate-form">
+        <input type="text" id="gate-name" placeholder="First name" autocomplete="given-name" />
+        <input type="email" id="gate-email" placeholder="Email address" required autocomplete="email" />
+        <button type="submit" class="qz-btn-primary">Get My Personalized Results →</button>
+      </form>
+      <p class="qz-privacy">Weekly breakdown of what's working for people in your situation. No spam. Unsubscribe anytime.</p>
+    </div>
+
+  </main>
+</QuizLayout>
+
+<style is:global>
+
+/* ── Layout ── */
+#qz-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #EBE7E0;
+  z-index: 100;
+  transition: opacity 0.4s;
+}
+#qz-progress.qz-progress-hidden { opacity: 0; pointer-events: none; }
+#qz-fill {
+  height: 100%;
+  background: #7A9E7E;
+  width: 0%;
+  transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#qz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  max-width: 680px;
+  margin: 0 auto;
+  min-height: 60px;
+}
+.qz-logo {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #2D2A26;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.15s;
+}
+.qz-logo:hover { color: #7A9E7E; }
+
+#qz-counter {
+  font-size: 0.75rem;
+  color: #C4BDB6;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.3s;
+}
+#qz-counter.qz-counter-hidden { opacity: 0; }
+
+#qz-back {
+  font-size: 0.8rem;
+  color: #C4BDB6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.25rem 0;
+  transition: color 0.15s, opacity 0.3s;
+  font-weight: 500;
+}
+#qz-back:hover { color: #7A9E7E; }
+#qz-back.qz-back-hidden { opacity: 0; pointer-events: none; }
+
+#qz-main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  min-height: calc(100vh - 60px);
+}
+
+/* ── Screens ── */
+.qz-screen {
+  padding: 1.5rem 0 5rem;
+  animation-fill-mode: both;
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.qz-visible { display: block; }
+.qz-hidden { display: none !important; }
+
+@keyframes qzSlideIn {
+  from { opacity: 0; transform: translateX(36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes qzSlideInBack {
+  from { opacity: 0; transform: translateX(-36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes qzFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.qz-anim-in   { animation-name: qzSlideIn; }
+.qz-anim-back { animation-name: qzSlideInBack; }
+.qz-anim-fade { animation-name: qzFadeUp; }
+
+/* ── Intro ── */
+.qz-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7A9E7E;
+  margin-bottom: 1rem;
+}
+#screen-intro h1 {
+  font-size: clamp(1.65rem, 5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #2D2A26;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+.qz-sub {
+  font-size: 1.05rem;
+  color: #6B6560;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.qz-bullets {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.qz-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.95rem;
+  color: #4A4540;
+  line-height: 1.55;
+}
+.qz-bullets li::before {
+  content: '✓';
+  color: #7A9E7E;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* ── Questions ── */
+.qz-qnum {
+  font-size: 0.7rem;
+  color: #C4BDB6;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.625rem;
+}
+.qz-qof { font-weight: 400; }
+
+.qz-question {
+  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  color: #2D2A26;
+  line-height: 1.3;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+/* ── Options ── */
+.qz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+.qz-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  background: white;
+  border: 2px solid #E8E4DE;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2D2A26;
+  line-height: 1.5;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s, box-shadow 0.15s;
+  width: 100%;
+}
+.qz-opt:hover {
+  border-color: #7A9E7E;
+  background: #F6FAF6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(122, 158, 126, 0.13);
+}
+.qz-opt:active { transform: scale(0.99); }
+.qz-opt.qz-selected {
+  border-color: #7A9E7E;
+  background: #7A9E7E;
+  color: white;
+  box-shadow: 0 4px 16px rgba(122, 158, 126, 0.25);
+}
+.qz-opt.qz-selected .qz-letter {
+  border-color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.9);
+}
+
+.qz-letter {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #D4CFC9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: #B5AFA8;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 0.15rem;
+}
+
+/* ── Why we ask ── */
+.qz-why { margin-top: 0.375rem; }
+.qz-why-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.7rem;
+  color: #D4CFC9;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+.qz-why-btn:hover { color: #A09890; }
+.qz-why-text {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: #ADA79F;
+  line-height: 1.7;
+  padding: 0.625rem 0.875rem;
+  background: #F5F2EE;
+  border-radius: 8px;
+  border-left: 2px solid #E0DAD4;
+  font-weight: 400;
+}
+
+/* ── Keyboard hint ── */
+.qz-kbd-hint {
+  font-size: 0.68rem;
+  color: #D4CFC9;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+/* ── CTA Button ── */
+.qz-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7A9E7E;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 14px rgba(122, 158, 126, 0.32);
+  width: 100%;
+  max-width: 420px;
+}
+.qz-btn-primary:hover {
+  opacity: 0.93;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(122, 158, 126, 0.38);
+}
+.qz-btn-primary:active { transform: scale(0.99); }
+
+/* ── Privacy / small text ── */
+.qz-privacy {
+  font-size: 0.72rem;
+  color: #C4BDB6;
+  line-height: 1.65;
+  margin-top: 0.875rem;
+  max-width: 420px;
+}
+
+/* ── Gate screen ── */
+.qz-gate-headline { margin-bottom: 0.75rem !important; }
+.qz-gate-body {
+  font-size: 1rem;
+  color: #6B6560;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.qz-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+.qz-gate-form input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #E8E4DE;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2D2A26;
+  background: white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+.qz-gate-form input:focus {
+  border-color: #7A9E7E;
+  box-shadow: 0 0 0 3px rgba(122, 158, 126, 0.12);
+}
+.qz-gate-form input::placeholder { color: #C4BDB6; }
+
+@media (min-width: 640px) {
+  #qz-header { padding: 1.5rem 2rem; }
+  #qz-main { padding: 0 2rem; }
+  .qz-screen { padding: 2rem 0 6rem; }
+}
+
+</style>
+
+<script is:inline>
+  const _qz = {
+    answers: {},
+    history: ['intro'],
+    animating: false,
+    order: ['q1','q2','q3','q4','q5','q6','q7','gate'],
+  };
+
+  function quizStart() {
+    _qzShow('q1', 'forward');
+    document.getElementById('qz-progress').classList.remove('qz-progress-hidden');
+    _qzFill(1);
+    _qzNav('q1');
+  }
+
+  function quizAnswer(qId, value) {
+    if (_qz.animating) return;
+    const opts = document.querySelectorAll('#screen-' + qId + ' .qz-opt');
+    opts.forEach(function(o) { o.classList.remove('qz-selected'); });
+    event.currentTarget.classList.add('qz-selected');
+    _qz.answers[qId] = value;
+
+    setTimeout(function() {
+      const idx = _qz.order.indexOf(qId);
+      const next = _qz.order[idx + 1];
+      _qz.history.push(next);
+      if (next === 'gate') _qzUpdateGate();
+      _qzShow(next, 'forward');
+      _qzFill(idx + 2);
+      _qzNav(next);
+    }, 380);
+  }
+
+  function quizBack() {
+    if (_qz.history.length <= 1 || _qz.animating) return;
+    _qz.history.pop();
+    const prev = _qz.history[_qz.history.length - 1];
+    const idx = _qz.order.indexOf(prev);
+    _qzShow(prev, 'back');
+    _qzFill(idx >= 0 ? idx + 1 : 0);
+    _qzNav(prev);
+  }
+
+  function quizToggleWhy(qId) {
+    const el = document.getElementById('why-' + qId);
+    const btn = el.previousElementSibling;
+    const wasHidden = el.classList.contains('qz-hidden');
+    el.classList.toggle('qz-hidden', !wasHidden);
+    btn.textContent = wasHidden ? 'Why we ask this ↑' : 'Why we ask this';
+  }
+
+  function quizSubmitGate(e) {
+    e.preventDefault();
+    const name  = document.getElementById('gate-name').value.trim();
+    const email = document.getElementById('gate-email').value.trim();
+    if (name)  localStorage.setItem('qz_name', name);
+    if (email) localStorage.setItem('qz_email', email);
+
+    // TODO: POST to email service when ConvertKit/MailerLite is configured
+
+    const bucket = _qzBucket();
+    const params = _qzParams();
+    window.location.href = '/quiz/results/' + bucket + '/' + (params ? '?' + params : '');
+  }
+
+  function _qzBucket() {
+    var q1 = _qz.answers.q1, q3 = _qz.answers.q3,
+        q5 = _qz.answers.q5, q6 = _qz.answers.q6;
+    var b = q1==='a' ? 'preventer'
+          : q1==='b' ? 'active-reducer'
+          : q1==='c' ? 'skin-retracter'
+          : q1==='d' ? 'manager'
+          : 'evaluator';
+    if (q3==='d' && (q1==='a'||q1==='b'||q1==='c')) b = 'manager';
+    if (q5==='e' && (q3==='c'||q3==='d') && b!=='evaluator') b = 'evaluator';
+    if (q6==='d' && b!=='evaluator') b = 'evaluator';
+    return b;
+  }
+
+  function _qzParams() {
+    var p = new URLSearchParams(), a = _qz.answers;
+    if (a.q2==='d')                 p.set('origin','glp1');
+    else if (a.q2==='b'||a.q2==='c') p.set('origin','pregnancy');
+    if (a.q4==='d') p.set('timeline','long');
+    if (a.q7==='d') p.set('age','55plus');
+    if (a.q5==='e') p.set('tried','multiple');
+    return p.toString();
+  }
+
+  function _qzUpdateGate() {
+    var q1 = _qz.answers.q1, q3 = _qz.answers.q3;
+    var map = {
+      a: "you're in the prevention window — the most effective time to act.",
+      b: "you're working on both the fat and skin components — and the sequence matters.",
+      c: "your weight is where you want it — now your skin needs to catch up.",
+      d: "you're dealing with significant loose skin. There are specific options for your situation.",
+      e: "you're ready for an honest picture — including the surgical comparison."
+    };
+    var key = (q3==='d' && (q1==='a'||q1==='b'||q1==='c')) ? 'd' : q1;
+    var el = document.getElementById('gate-headline');
+    if (el) el.textContent = 'Based on your answers: ' + (map[key] || map.a);
+  }
+
+  function _qzShow(screenId, dir) {
+    if (_qz.animating) return;
+    _qz.animating = true;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    var current = document.querySelector('.qz-screen:not(.qz-hidden)');
+    var next    = document.getElementById('screen-' + screenId);
+    if (!next) { _qz.animating = false; return; }
+
+    if (current) current.classList.add('qz-hidden');
+    next.classList.remove('qz-hidden');
+
+    var cls = dir === 'forward' ? 'qz-anim-in' : 'qz-anim-back';
+    next.classList.add(cls);
+    next.addEventListener('animationend', function() {
+      next.classList.remove(cls);
+      _qz.animating = false;
+    }, { once: true });
+  }
+
+  function _qzFill(step) {
+    var el = document.getElementById('qz-fill');
+    if (el) el.style.width = Math.min((step / 7) * 100, 100) + '%';
+  }
+
+  function _qzNav(screenId) {
+    var counter = document.getElementById('qz-counter');
+    var back    = document.getElementById('qz-back');
+    var idx = _qz.order.indexOf(screenId);
+
+    if (counter) {
+      if (idx >= 0 && screenId !== 'gate') {
+        counter.textContent = (idx + 1) + ' / 7';
+        counter.classList.remove('qz-counter-hidden');
+      } else {
+        counter.classList.add('qz-counter-hidden');
+      }
+    }
+    if (back) {
+      if (screenId === 'intro') back.classList.add('qz-back-hidden');
+      else back.classList.remove('qz-back-hidden');
+    }
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    var active = document.querySelector('.qz-screen:not(.qz-hidden)');
+    if (!active) return;
+    var sid = active.id.replace('screen-', '');
+    var counts = { q1:5, q2:6, q3:4, q4:4, q5:5, q6:4, q7:4 };
+    var n = counts[sid]; if (!n) return;
+
+    var letters = ['a','b','c','d','e','f'];
+    var num = parseInt(e.key), letter = e.key.toLowerCase();
+    var idx = -1;
+    if (!isNaN(num) && num >= 1 && num <= n) idx = num - 1;
+    else if (letters.indexOf(letter) >= 0 && letters.indexOf(letter) < n) idx = letters.indexOf(letter);
+    if (idx < 0) return;
+
+    var opts = active.querySelectorAll('.qz-opt');
+    if (opts[idx]) opts[idx].click();
+  });
+</script>
