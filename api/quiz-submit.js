@@ -31,10 +31,10 @@ export default async function handler(req, res) {
         bucket,
         q1: q1 || null, q2: q2 || null, q3: q3 || null, q4: q4 || null,
         q5: q5 || null, q6: q6 || null, q7: q7 || null,
-        origin: origin || null,
-        timeline: timeline || null,
-        age_range: age_range || null,
-        tried: tried || null,
+        modifier_origin:   origin    || null,
+        modifier_timeline: timeline  || null,
+        modifier_age:      age_range || null,
+        modifier_tried:    tried     || null,
       }),
     });
 
