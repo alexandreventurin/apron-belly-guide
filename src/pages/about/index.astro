@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const authorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sarah Mitchell',
+  url: 'https://apronbellyguide.com/about/',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Apron Belly Guide',
+    url: 'https://apronbellyguide.com',
+  },
+};
+---
+
+<BaseLayout
+  title="About — Apron Belly Guide"
+  description="Why this site exists: the gap between 'get surgery' and 'just accept it' — and what we built to fill it."
+  schema={authorSchema}
+>
+
+<main class="max-w-3xl mx-auto px-4 py-10 sm:py-16">
+  <article class="prose prose-stone max-w-none
+    prose-headings:font-sans prose-headings:text-on-surface
+    prose-h1:text-3xl prose-h1:sm:text-4xl prose-h1:font-bold prose-h1:leading-tight prose-h1:tracking-tight prose-h1:mb-6
+    prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4
+    prose-p:text-on-surface prose-p:leading-relaxed
+    prose-a:text-sage-green prose-a:no-underline hover:prose-a:underline
+    prose-strong:text-on-surface">
+
+    <h1>About Apron Belly Guide</h1>
+
+    <p>This site started from frustration.</p>
+
+    <p>After losing a significant amount of weight, I was left with something nobody had warned me about: an apron belly that didn't go away when the weight did. The skin just… stayed. I spent weeks searching for real answers — what causes this, what actually helps, what the realistic options are — and kept hitting the same two walls.</p>
+
+    <p>The first wall: content written by or for surgical clinics, where every article ends with a consultation pitch. The second wall: generic wellness content that skipped the hard parts and told me to love my body.</p>
+
+    <p>Both felt like dead ends. Not because the advice was wrong, exactly — but because neither was actually trying to help me figure out what to do.</p>
+
+    <p>I found pieces of real information scattered across Reddit threads, academic papers, and the occasional honest blog post from someone who had been through it. But there was no single place that put it all together, took the question seriously, and gave straight answers.</p>
+
+    <p>That's what Apron Belly Guide is.</p>
+
+    <h2>What we cover — and what we don't</h2>
+
+    <p>This site is focused exclusively on non-surgical approaches: compression, skin tightening, collagen, exercise, realistic timelines, and honest expectations about what each can and can't do.</p>
+
+    <p>We do cover surgery — but as information, not as a recommendation. Our surgery pages exist so that people evaluating that option have objective, non-salesy information about what the procedures involve, what insurance actually covers, and what the realistic criteria are.</p>
+
+    <p>We don't have a financial interest in whether you have surgery or not. We do have affiliate relationships with some products we mention — that's disclosed clearly wherever it applies, and we only recommend things we'd actually suggest to someone we care about.</p>
+
+    <h2>Who writes here</h2>
+
+    <p>My name is Sarah Mitchell. I'm not a doctor or a surgeon. I'm someone who went through this, spent a lot of time researching it, and decided to build the resource I wished had existed when I started looking.</p>
+
+    <p>Everything here is reviewed against current research before it goes up, and updated when the evidence changes. If something is uncertain, we say so. If something won't work for most people, we say that too.</p>
+
+    <h2>A note on realistic expectations</h2>
+
+    <p>One thing you'll notice throughout this site: we try hard not to overclaim. The non-surgical options for apron belly are real — but they have limits, and those limits depend on factors like how long the skin was stretched, how much was lost, age, and genetics.</p>
+
+    <p>We think you deserve to know those limits clearly, so you can make real decisions rather than chasing approaches that aren't right for your situation.</p>
+
+    <p>If you have questions or want to share your experience, you can reach us at <a href="mailto:contact@apronbellyguide.com">contact@apronbellyguide.com</a>.</p>
+
+  </article>
+</main>
+
+</BaseLayout>

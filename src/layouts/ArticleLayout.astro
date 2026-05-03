@@ -5,14 +5,18 @@ export interface Props {
   title: string;
   description: string;
   canonicalUrl?: string;
+  pubDate?: string;
   breadcrumb?: { label: string; href: string }[];
+  faqItems?: { q: string; a: string }[];
 }
 
 const {
   title,
   description,
   canonicalUrl,
+  pubDate = '2026-05-01',
   breadcrumb = [],
+  faqItems = [],
 } = Astro.props;
 
 const canonical = canonicalUrl ?? Astro.url.href;
@@ -23,6 +27,13 @@ const articleSchema = {
   headline: title,
   description: description,
   url: canonical,
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: {
+    '@type': 'Person',
+    name: 'Sarah Mitchell',
+    url: 'https://apronbellyguide.com/about/',
+  },
   publisher: {
     '@type': 'Organization',
     name: 'Apron Belly Guide',
@@ -44,9 +55,20 @@ const breadcrumbSchema = breadcrumb.length > 0 ? {
   ],
 } : null;
 
+const faqSchema = faqItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+} : null;
+
 const schemas = [
   articleSchema,
   ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+  ...(faqSchema ? [faqSchema] : []),
 ];
 ---
 
